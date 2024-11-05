@@ -1,0 +1,557 @@
+Classic Timing Analyzer report for uart
+Tue Nov 05 13:55:11 2024
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'Main_PLL:PLL|altpll:altpll_component|_clk0'
+  7. Clock Hold: 'Main_PLL:PLL|altpll:altpll_component|_clk0'
+  8. tsu
+  9. tco
+ 10. th
+ 11. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                                                                                        ;
++-----------------------------------------------------------+-----------+-----------------------------------+----------------------------------+------------------------------+-------------------------+--------------------------------------------+--------------------------------------------+--------------+
+; Type                                                      ; Slack     ; Required Time                     ; Actual Time                      ; From                         ; To                      ; From Clock                                 ; To Clock                                   ; Failed Paths ;
++-----------------------------------------------------------+-----------+-----------------------------------+----------------------------------+------------------------------+-------------------------+--------------------------------------------+--------------------------------------------+--------------+
+; Worst-case tsu                                            ; N/A       ; None                              ; 2.097 ns                         ; Input_Data_Line              ; st_start_yes_s          ; --                                         ; System_Clock                               ; 0            ;
+; Worst-case tco                                            ; N/A       ; None                              ; 7.994 ns                         ; D_trigger:parity_d_trigger|q ; parity_vp               ; System_Clock                               ; --                                         ; 0            ;
+; Worst-case th                                             ; N/A       ; None                              ; 2.775 ns                         ; Input_Data_Line              ; D_trigger:d_trigger_0|q ; --                                         ; System_Clock                               ; 0            ;
+; Clock Setup: 'Main_PLL:PLL|altpll:altpll_component|_clk0' ; 3.608 ns  ; 100.00 MHz ( period = 10.000 ns ) ; 156.45 MHz ( period = 6.392 ns ) ; counter:cnt_1|cnt[0]         ; st_start_yes_s          ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0            ;
+; Clock Hold: 'Main_PLL:PLL|altpll:altpll_component|_clk0'  ; -2.653 ns ; 100.00 MHz ( period = 10.000 ns ) ; N/A                              ; cnt_en_s                     ; counter:cnt_1|cnt[0]    ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 12           ;
+; Total number of failed paths                              ;           ;                                   ;                                  ;                              ;                         ;                                            ;                                            ; 12           ;
++-----------------------------------------------------------+-----------+-----------------------------------+----------------------------------+------------------------------+-------------------------+--------------------------------------------+--------------------------------------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EP2C20F484C7       ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                                                                 ;
++--------------------------------------------+--------------------+------------+------------------+---------------+--------------+--------------+-----------------------+---------------------+-----------+--------------+
+; Clock Node Name                            ; Clock Setting Name ; Type       ; Fmax Requirement ; Early Latency ; Late Latency ; Based on     ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset    ; Phase offset ;
++--------------------------------------------+--------------------+------------+------------------+---------------+--------------+--------------+-----------------------+---------------------+-----------+--------------+
+; Main_PLL:PLL|altpll:altpll_component|_clk0 ;                    ; PLL output ; 100.0 MHz        ; 0.000 ns      ; 0.000 ns     ; System_Clock ; 2                     ; 1                   ; -2.419 ns ;              ;
+; System_Clock                               ;                    ; User Pin   ; 50.0 MHz         ; 0.000 ns      ; 0.000 ns     ; --           ; N/A                   ; N/A                 ; N/A       ;              ;
++--------------------------------------------+--------------------+------------+------------------+---------------+--------------+--------------+-----------------------+---------------------+-----------+--------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-16 processors        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'Main_PLL:PLL|altpll:altpll_component|_clk0'                                                                                                                                                                                                                                                             ;
++-----------+-----------------------------------------------+--------------------------------------+--------------------------------------+--------------------------------------------+--------------------------------------------+-----------------------------+---------------------------+-------------------------+
+; Slack     ; Actual fmax (period)                          ; From                                 ; To                                   ; From Clock                                 ; To Clock                                   ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------+-----------------------------------------------+--------------------------------------+--------------------------------------+--------------------------------------------+--------------------------------------------+-----------------------------+---------------------------+-------------------------+
+; 3.608 ns  ; 156.45 MHz ( period = 6.392 ns )              ; counter:cnt_1|cnt[0]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.968 ns                  ; 2.360 ns                ;
+; 3.736 ns  ; 159.64 MHz ( period = 6.264 ns )              ; counter:cnt_1|cnt[2]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 2.231 ns                ;
+; 3.777 ns  ; 160.69 MHz ( period = 6.223 ns )              ; counter:cnt_1|cnt[5]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 2.190 ns                ;
+; 3.816 ns  ; 161.71 MHz ( period = 6.184 ns )              ; counter:cnt_1|cnt[1]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 2.151 ns                ;
+; 3.903 ns  ; 164.02 MHz ( period = 6.097 ns )              ; counter:cnt_1|cnt[1]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 2.064 ns                ;
+; 3.947 ns  ; 165.21 MHz ( period = 6.053 ns )              ; counter:cnt_1|cnt[4]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 2.020 ns                ;
+; 4.081 ns  ; 168.95 MHz ( period = 5.919 ns )              ; counter:cnt_1|cnt[0]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.968 ns                  ; 1.887 ns                ;
+; 4.178 ns  ; 171.76 MHz ( period = 5.822 ns )              ; counter:cnt_1|cnt[0]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.968 ns                  ; 1.790 ns                ;
+; 4.182 ns  ; 171.88 MHz ( period = 5.818 ns )              ; counter:cnt_1|cnt[0]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.968 ns                  ; 1.786 ns                ;
+; 4.224 ns  ; 173.13 MHz ( period = 5.776 ns )              ; counter:cnt_1|cnt[3]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.743 ns                ;
+; 4.311 ns  ; 175.78 MHz ( period = 5.689 ns )              ; counter:cnt_1|cnt[2]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.656 ns                ;
+; 4.337 ns  ; 176.58 MHz ( period = 5.663 ns )              ; counter:cnt_1|cnt[2]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.630 ns                ;
+; 4.344 ns  ; 176.80 MHz ( period = 5.656 ns )              ; counter:cnt_1|cnt[4]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.623 ns                ;
+; 4.347 ns  ; 176.90 MHz ( period = 5.653 ns )              ; counter:cnt_1|cnt[5]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.620 ns                ;
+; 4.351 ns  ; 177.02 MHz ( period = 5.649 ns )              ; counter:cnt_1|cnt[5]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.616 ns                ;
+; 4.478 ns  ; 181.09 MHz ( period = 5.522 ns )              ; counter:cnt_1|cnt[1]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.489 ns                ;
+; 4.504 ns  ; 181.95 MHz ( period = 5.496 ns )              ; counter:cnt_1|cnt[1]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.463 ns                ;
+; 4.517 ns  ; 182.38 MHz ( period = 5.483 ns )              ; counter:cnt_1|cnt[4]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.450 ns                ;
+; 4.521 ns  ; 182.52 MHz ( period = 5.479 ns )              ; counter:cnt_1|cnt[4]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.446 ns                ;
+; 4.691 ns  ; 188.36 MHz ( period = 5.309 ns )              ; counter:cnt_1|cnt[3]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.276 ns                ;
+; 4.794 ns  ; 192.09 MHz ( period = 5.206 ns )              ; counter:cnt_1|cnt[3]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.173 ns                ;
+; 4.798 ns  ; 192.23 MHz ( period = 5.202 ns )              ; counter:cnt_1|cnt[3]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.169 ns                ;
+; 4.909 ns  ; 196.43 MHz ( period = 5.091 ns )              ; counter:cnt_1|cnt[2]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 1.058 ns                ;
+; 5.001 ns  ; 200.04 MHz ( period = 4.999 ns )              ; counter:cnt_1|cnt[5]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 7.206 ns                  ; 2.205 ns                ;
+; 5.004 ns  ; 200.16 MHz ( period = 4.996 ns )              ; counter:cnt_1|cnt[5]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 5.967 ns                  ; 0.963 ns                ;
+; 5.197 ns  ; 208.20 MHz ( period = 4.803 ns )              ; counter:cnt_1|cnt[4]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 7.206 ns                  ; 2.009 ns                ;
+; 5.405 ns  ; 217.63 MHz ( period = 4.595 ns )              ; counter:cnt_1|cnt[2]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 7.206 ns                  ; 1.801 ns                ;
+; 5.539 ns  ; 224.16 MHz ( period = 4.461 ns )              ; counter:cnt_1|cnt[3]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 7.206 ns                  ; 1.667 ns                ;
+; 5.715 ns  ; 233.37 MHz ( period = 4.285 ns )              ; counter:cnt_1|cnt[1]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 7.206 ns                  ; 1.491 ns                ;
+; 5.920 ns  ; 245.10 MHz ( period = 4.080 ns )              ; counter:cnt_1|cnt[0]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 7.207 ns                  ; 1.287 ns                ;
+; 7.310 ns  ; 371.75 MHz ( period = 2.690 ns )              ; D_trigger:\d_triggers:1:d_triggers|q ; D_trigger:\d_triggers:2:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 8.086 ns                  ; 0.776 ns                ;
+; 7.478 ns  ; 396.51 MHz ( period = 2.522 ns )              ; prescaler_s[0]                       ; prescaler_s[4]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 2.283 ns                ;
+; 7.502 ns  ; 400.32 MHz ( period = 2.498 ns )              ; D_trigger:d_trigger_0|q              ; D_trigger:\d_triggers:1:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 8.691 ns                  ; 1.189 ns                ;
+; 7.535 ns  ; 405.68 MHz ( period = 2.465 ns )              ; counter:cnt_1|cnt[1]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 2.226 ns                ;
+; 7.568 ns  ; 411.18 MHz ( period = 2.432 ns )              ; prescaler_s[1]                       ; prescaler_s[4]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 2.193 ns                ;
+; 7.604 ns  ; 417.36 MHz ( period = 2.396 ns )              ; prescaler_s[2]                       ; prescaler_s[4]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 2.157 ns                ;
+; 7.615 ns  ; 419.29 MHz ( period = 2.385 ns )              ; counter:cnt_1|cnt[1]                 ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 2.146 ns                ;
+; 7.680 ns  ; 431.03 MHz ( period = 2.320 ns )              ; D_trigger:\d_triggers:3:d_triggers|q ; D_trigger:\d_triggers:4:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 8.840 ns                  ; 1.160 ns                ;
+; 7.695 ns  ; 433.84 MHz ( period = 2.305 ns )              ; counter:cnt_1|cnt[1]                 ; counter:cnt_1|cnt[3]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 2.066 ns                ;
+; 7.701 ns  ; 434.97 MHz ( period = 2.299 ns )              ; prescaler_s[0]                       ; prescaler_s[3]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 2.060 ns                ;
+; 7.722 ns  ; 438.98 MHz ( period = 2.278 ns )              ; prescaler_s[3]                       ; prescaler_s[4]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 2.039 ns                ;
+; 7.775 ns  ; 449.44 MHz ( period = 2.225 ns )              ; counter:cnt_1|cnt[1]                 ; counter:cnt_1|cnt[2]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.986 ns                ;
+; 7.791 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[1]                       ; prescaler_s[3]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.970 ns                ;
+; 7.827 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[2]                       ; prescaler_s[3]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.934 ns                ;
+; 7.855 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; edge_sensor:ES_in|q3                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.760 ns                  ; 1.905 ns                ;
+; 7.875 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.762 ns                  ; 1.887 ns                ;
+; 7.889 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; D_trigger:\d_triggers:6:d_triggers|q ; D_trigger:\d_triggers:7:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.022 ns                  ; 1.133 ns                ;
+; 7.902 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; D_trigger:\d_triggers:2:d_triggers|q ; D_trigger:\d_triggers:3:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.051 ns                  ; 1.149 ns                ;
+; 7.913 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; st_start_yes_s                       ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.848 ns                ;
+; 7.933 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; st_check_start_s                     ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.828 ns                ;
+; 7.933 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; st_check_start_s                     ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.828 ns                ;
+; 7.955 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.762 ns                  ; 1.807 ns                ;
+; 7.957 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[4]                       ; prescaler_s[0]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.804 ns                ;
+; 7.960 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[4]                       ; prescaler_s[4]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.801 ns                ;
+; 7.966 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[2]                       ; prescaler_s[0]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.795 ns                ;
+; 8.024 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; st_wait_start_s                      ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.760 ns                  ; 1.736 ns                ;
+; 8.035 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[3]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.762 ns                  ; 1.727 ns                ;
+; 8.059 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; D_trigger:\d_triggers:4:d_triggers|q ; D_trigger:\d_triggers:5:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 8.868 ns                  ; 0.809 ns                ;
+; 8.112 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[1]                       ; prescaler_s[0]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.649 ns                ;
+; 8.115 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[2]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.762 ns                  ; 1.647 ns                ;
+; 8.119 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[2]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.642 ns                ;
+; 8.168 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[4]                       ; prescaler_s[3]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.593 ns                ;
+; 8.169 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[4]                       ; pre_rst_s                            ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.592 ns                ;
+; 8.173 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; D_trigger:\d_triggers:5:d_triggers|q ; D_trigger:\d_triggers:6:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 8.801 ns                  ; 0.628 ns                ;
+; 8.178 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[2]                       ; pre_rst_s                            ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.583 ns                ;
+; 8.197 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; D_trigger:parity_d_trigger|q         ; D_trigger:parity_d_trigger|q         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 8.651 ns                  ; 0.454 ns                ;
+; 8.199 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[2]                 ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.562 ns                ;
+; 8.206 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[1]                 ; counter:cnt_1|cnt[1]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.555 ns                ;
+; 8.222 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[3]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.539 ns                ;
+; 8.258 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[0]                       ; prescaler_s[2]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.503 ns                ;
+; 8.262 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[3]                       ; prescaler_s[0]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.499 ns                ;
+; 8.279 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[2]                 ; counter:cnt_1|cnt[3]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.482 ns                ;
+; 8.295 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[0]                       ; prescaler_s[0]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.466 ns                ;
+; 8.297 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[3]                       ; prescaler_s[3]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.464 ns                ;
+; 8.302 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[3]                 ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.459 ns                ;
+; 8.303 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[4]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.458 ns                ;
+; 8.324 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[1]                       ; pre_rst_s                            ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.437 ns                ;
+; 8.338 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[0]                       ; prescaler_s[1]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.423 ns                ;
+; 8.348 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[1]                       ; prescaler_s[2]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.413 ns                ;
+; 8.474 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[3]                       ; pre_rst_s                            ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.287 ns                ;
+; 8.514 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; mode_trigger_s                       ; SR_trigger:mode|Q_SR                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.755 ns                  ; 1.241 ns                ;
+; 8.547 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[1]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.762 ns                  ; 1.215 ns                ;
+; 8.574 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; mode_trigger_r                       ; SR_trigger:mode|Q_SR                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.755 ns                  ; 1.181 ns                ;
+; 8.712 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[2]                 ; counter:cnt_1|cnt[2]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.049 ns                ;
+; 8.721 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; st_start_yes_s                       ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.040 ns                ;
+; 8.734 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[3]                 ; counter:cnt_1|cnt[3]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.027 ns                ;
+; 8.735 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[4]                 ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.026 ns                ;
+; 8.737 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[2]                       ; prescaler_s[2]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.024 ns                ;
+; 8.745 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; st_check_start_s                     ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 1.016 ns                ;
+; 8.772 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; edge_sensor:ES_in|q3                 ; cnt_en_s                             ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.989 ns                ;
+; 8.780 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[1]                       ; prescaler_s[1]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.981 ns                ;
+; 8.987 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; edge_sensor:ES_in|q2                 ; edge_sensor:ES_in|q3                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.774 ns                ;
+; 9.077 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[5]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.684 ns                ;
+; 9.111 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; prescaler_s[0]                       ; pre_rst_s                            ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.650 ns                ;
+; 9.125 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; edge_sensor:ES_in|q3                 ; st_wait_start_s                      ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.636 ns                ;
+; 9.128 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; st_wait_start_s                      ; cnt_en_s                             ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.633 ns                ;
+; 9.131 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; edge_sensor:ES_in|q1                 ; edge_sensor:ES_in|q2                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.630 ns                ;
+; 9.132 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; edge_sensor:ES_in|q1                 ; edge_sensor:ES_in|q3                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.629 ns                ;
+; 9.307 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; SR_trigger:mode|Q_SR                 ; SR_trigger:mode|Q_SR                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.454 ns                ;
+; 9.307 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; st_wait_start_s                      ; st_wait_start_s                      ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.454 ns                ;
+; 9.307 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[0]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.454 ns                ;
+; 9.307 ns  ; Restricted to 450.05 MHz ( period = 2.22 ns ) ; cnt_en_s                             ; cnt_en_s                             ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 9.761 ns                  ; 0.454 ns                ;
+; 11.939 ns ; None                                          ; cnt_en_s                             ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 13.554 ns                 ; 1.615 ns                ;
+; 11.939 ns ; None                                          ; cnt_en_s                             ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 13.554 ns                 ; 1.615 ns                ;
+; 11.939 ns ; None                                          ; cnt_en_s                             ; counter:cnt_1|cnt[3]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 13.554 ns                 ; 1.615 ns                ;
+; 11.939 ns ; None                                          ; cnt_en_s                             ; counter:cnt_1|cnt[2]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 13.554 ns                 ; 1.615 ns                ;
+; 11.939 ns ; None                                          ; cnt_en_s                             ; counter:cnt_1|cnt[1]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 13.554 ns                 ; 1.615 ns                ;
+; 12.405 ns ; None                                          ; cnt_en_s                             ; counter:cnt_1|cnt[0]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 10.000 ns                   ; 13.553 ns                 ; 1.148 ns                ;
++-----------+-----------------------------------------------+--------------------------------------+--------------------------------------+--------------------------------------------+--------------------------------------------+-----------------------------+---------------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'Main_PLL:PLL|altpll:altpll_component|_clk0'                                                                                                                                                                                                                   ;
++---------------+--------------------------------------+--------------------------------------+--------------------------------------------+--------------------------------------------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack ; From                                 ; To                                   ; From Clock                                 ; To Clock                                   ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++---------------+--------------------------------------+--------------------------------------+--------------------------------------------+--------------------------------------------+----------------------------+----------------------------+--------------------------+
+; -2.653 ns     ; cnt_en_s                             ; counter:cnt_1|cnt[0]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 3.801 ns                   ; 1.148 ns                 ;
+; -2.187 ns     ; cnt_en_s                             ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 3.802 ns                   ; 1.615 ns                 ;
+; -2.187 ns     ; cnt_en_s                             ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 3.802 ns                   ; 1.615 ns                 ;
+; -2.187 ns     ; cnt_en_s                             ; counter:cnt_1|cnt[3]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 3.802 ns                   ; 1.615 ns                 ;
+; -2.187 ns     ; cnt_en_s                             ; counter:cnt_1|cnt[2]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 3.802 ns                   ; 1.615 ns                 ;
+; -2.187 ns     ; cnt_en_s                             ; counter:cnt_1|cnt[1]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 3.802 ns                   ; 1.615 ns                 ;
+; -0.665 ns     ; D_trigger:parity_d_trigger|q         ; D_trigger:parity_d_trigger|q         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 1.119 ns                   ; 0.454 ns                 ;
+; -0.617 ns     ; D_trigger:\d_triggers:4:d_triggers|q ; D_trigger:\d_triggers:5:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 1.426 ns                   ; 0.809 ns                 ;
+; -0.561 ns     ; D_trigger:\d_triggers:2:d_triggers|q ; D_trigger:\d_triggers:3:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 1.710 ns                   ; 1.149 ns                 ;
+; -0.533 ns     ; D_trigger:\d_triggers:5:d_triggers|q ; D_trigger:\d_triggers:6:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 1.161 ns                   ; 0.628 ns                 ;
+; -0.466 ns     ; D_trigger:\d_triggers:3:d_triggers|q ; D_trigger:\d_triggers:4:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 1.626 ns                   ; 1.160 ns                 ;
+; -0.160 ns     ; D_trigger:d_trigger_0|q              ; D_trigger:\d_triggers:1:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 1.349 ns                   ; 1.189 ns                 ;
+; 0.032 ns      ; D_trigger:\d_triggers:1:d_triggers|q ; D_trigger:\d_triggers:2:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.744 ns                   ; 0.776 ns                 ;
+; 0.445 ns      ; SR_trigger:mode|Q_SR                 ; SR_trigger:mode|Q_SR                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.454 ns                 ;
+; 0.445 ns      ; st_check_start_s                     ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.454 ns                 ;
+; 0.445 ns      ; prescaler_s[0]                       ; prescaler_s[0]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.454 ns                 ;
+; 0.445 ns      ; st_wait_start_s                      ; st_wait_start_s                      ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.454 ns                 ;
+; 0.445 ns      ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[0]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.454 ns                 ;
+; 0.445 ns      ; cnt_en_s                             ; cnt_en_s                             ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.454 ns                 ;
+; 0.460 ns      ; D_trigger:\d_triggers:6:d_triggers|q ; D_trigger:\d_triggers:7:d_triggers|q ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.673 ns                   ; 1.133 ns                 ;
+; 0.620 ns      ; edge_sensor:ES_in|q1                 ; edge_sensor:ES_in|q3                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.629 ns                 ;
+; 0.621 ns      ; edge_sensor:ES_in|q1                 ; edge_sensor:ES_in|q2                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.630 ns                 ;
+; 0.624 ns      ; st_wait_start_s                      ; cnt_en_s                             ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.633 ns                 ;
+; 0.627 ns      ; edge_sensor:ES_in|q3                 ; st_wait_start_s                      ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.636 ns                 ;
+; 0.639 ns      ; prescaler_s[0]                       ; prescaler_s[4]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.648 ns                 ;
+; 0.641 ns      ; prescaler_s[0]                       ; pre_rst_s                            ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.650 ns                 ;
+; 0.675 ns      ; counter:cnt_1|cnt[5]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.684 ns                 ;
+; 0.765 ns      ; edge_sensor:ES_in|q2                 ; edge_sensor:ES_in|q3                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.774 ns                 ;
+; 0.958 ns      ; prescaler_s[0]                       ; prescaler_s[3]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.967 ns                 ;
+; 0.972 ns      ; prescaler_s[1]                       ; prescaler_s[1]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.981 ns                 ;
+; 0.980 ns      ; edge_sensor:ES_in|q3                 ; cnt_en_s                             ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 0.989 ns                 ;
+; 1.007 ns      ; st_check_start_s                     ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.016 ns                 ;
+; 1.015 ns      ; prescaler_s[2]                       ; prescaler_s[2]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.024 ns                 ;
+; 1.017 ns      ; counter:cnt_1|cnt[4]                 ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.026 ns                 ;
+; 1.018 ns      ; counter:cnt_1|cnt[3]                 ; counter:cnt_1|cnt[3]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.027 ns                 ;
+; 1.031 ns      ; st_start_yes_s                       ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.040 ns                 ;
+; 1.040 ns      ; counter:cnt_1|cnt[2]                 ; counter:cnt_1|cnt[2]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.049 ns                 ;
+; 1.178 ns      ; mode_trigger_r                       ; SR_trigger:mode|Q_SR                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.003 ns                   ; 1.181 ns                 ;
+; 1.205 ns      ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[1]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.010 ns                   ; 1.215 ns                 ;
+; 1.238 ns      ; mode_trigger_s                       ; SR_trigger:mode|Q_SR                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.003 ns                   ; 1.241 ns                 ;
+; 1.250 ns      ; prescaler_s[4]                       ; prescaler_s[4]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.259 ns                 ;
+; 1.278 ns      ; prescaler_s[3]                       ; pre_rst_s                            ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.287 ns                 ;
+; 1.279 ns      ; prescaler_s[3]                       ; prescaler_s[3]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.288 ns                 ;
+; 1.404 ns      ; prescaler_s[1]                       ; prescaler_s[2]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.413 ns                 ;
+; 1.414 ns      ; prescaler_s[0]                       ; prescaler_s[1]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.423 ns                 ;
+; 1.428 ns      ; prescaler_s[1]                       ; pre_rst_s                            ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.437 ns                 ;
+; 1.429 ns      ; prescaler_s[1]                       ; prescaler_s[3]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.438 ns                 ;
+; 1.449 ns      ; counter:cnt_1|cnt[4]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.458 ns                 ;
+; 1.450 ns      ; counter:cnt_1|cnt[3]                 ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.459 ns                 ;
+; 1.473 ns      ; counter:cnt_1|cnt[2]                 ; counter:cnt_1|cnt[3]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.482 ns                 ;
+; 1.487 ns      ; prescaler_s[3]                       ; prescaler_s[4]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.496 ns                 ;
+; 1.490 ns      ; prescaler_s[3]                       ; prescaler_s[0]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.499 ns                 ;
+; 1.494 ns      ; prescaler_s[0]                       ; prescaler_s[2]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.503 ns                 ;
+; 1.530 ns      ; counter:cnt_1|cnt[3]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.539 ns                 ;
+; 1.546 ns      ; counter:cnt_1|cnt[1]                 ; counter:cnt_1|cnt[1]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.555 ns                 ;
+; 1.553 ns      ; counter:cnt_1|cnt[2]                 ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.562 ns                 ;
+; 1.574 ns      ; prescaler_s[2]                       ; pre_rst_s                            ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.583 ns                 ;
+; 1.575 ns      ; prescaler_s[2]                       ; prescaler_s[3]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.584 ns                 ;
+; 1.583 ns      ; prescaler_s[4]                       ; pre_rst_s                            ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.592 ns                 ;
+; 1.584 ns      ; prescaler_s[4]                       ; prescaler_s[3]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.593 ns                 ;
+; 1.604 ns      ; st_start_yes_s                       ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.613 ns                 ;
+; 1.613 ns      ; st_check_start_s                     ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.622 ns                 ;
+; 1.633 ns      ; counter:cnt_1|cnt[2]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.642 ns                 ;
+; 1.637 ns      ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[2]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.010 ns                   ; 1.647 ns                 ;
+; 1.637 ns      ; prescaler_s[1]                       ; prescaler_s[4]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.646 ns                 ;
+; 1.640 ns      ; prescaler_s[1]                       ; prescaler_s[0]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.649 ns                 ;
+; 1.717 ns      ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[3]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.010 ns                   ; 1.727 ns                 ;
+; 1.728 ns      ; st_wait_start_s                      ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.008 ns                   ; 1.736 ns                 ;
+; 1.783 ns      ; prescaler_s[2]                       ; prescaler_s[4]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.792 ns                 ;
+; 1.786 ns      ; prescaler_s[2]                       ; prescaler_s[0]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.795 ns                 ;
+; 1.795 ns      ; prescaler_s[4]                       ; prescaler_s[0]                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.804 ns                 ;
+; 1.797 ns      ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.010 ns                   ; 1.807 ns                 ;
+; 1.877 ns      ; counter:cnt_1|cnt[0]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.010 ns                   ; 1.887 ns                 ;
+; 1.897 ns      ; edge_sensor:ES_in|q3                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.008 ns                   ; 1.905 ns                 ;
+; 1.977 ns      ; counter:cnt_1|cnt[1]                 ; counter:cnt_1|cnt[2]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 1.986 ns                 ;
+; 2.057 ns      ; counter:cnt_1|cnt[1]                 ; counter:cnt_1|cnt[3]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 2.066 ns                 ;
+; 2.137 ns      ; counter:cnt_1|cnt[1]                 ; counter:cnt_1|cnt[4]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 2.146 ns                 ;
+; 2.217 ns      ; counter:cnt_1|cnt[1]                 ; counter:cnt_1|cnt[5]                 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; 0.009 ns                   ; 2.226 ns                 ;
+; 3.832 ns      ; counter:cnt_1|cnt[0]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -2.545 ns                  ; 1.287 ns                 ;
+; 4.037 ns      ; counter:cnt_1|cnt[1]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -2.546 ns                  ; 1.491 ns                 ;
+; 4.213 ns      ; counter:cnt_1|cnt[3]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -2.546 ns                  ; 1.667 ns                 ;
+; 4.347 ns      ; counter:cnt_1|cnt[2]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -2.546 ns                  ; 1.801 ns                 ;
+; 4.555 ns      ; counter:cnt_1|cnt[4]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -2.546 ns                  ; 2.009 ns                 ;
+; 4.748 ns      ; counter:cnt_1|cnt[5]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 0.963 ns                 ;
+; 4.751 ns      ; counter:cnt_1|cnt[5]                 ; bit_locked_s                         ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -2.546 ns                  ; 2.205 ns                 ;
+; 4.842 ns      ; counter:cnt_1|cnt[2]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.057 ns                 ;
+; 4.843 ns      ; counter:cnt_1|cnt[2]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.058 ns                 ;
+; 4.954 ns      ; counter:cnt_1|cnt[3]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.169 ns                 ;
+; 4.955 ns      ; counter:cnt_1|cnt[3]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.170 ns                 ;
+; 4.958 ns      ; counter:cnt_1|cnt[3]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.173 ns                 ;
+; 5.061 ns      ; counter:cnt_1|cnt[3]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.276 ns                 ;
+; 5.231 ns      ; counter:cnt_1|cnt[4]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.446 ns                 ;
+; 5.232 ns      ; counter:cnt_1|cnt[4]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.447 ns                 ;
+; 5.235 ns      ; counter:cnt_1|cnt[4]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.450 ns                 ;
+; 5.248 ns      ; counter:cnt_1|cnt[1]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.463 ns                 ;
+; 5.252 ns      ; counter:cnt_1|cnt[1]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.467 ns                 ;
+; 5.274 ns      ; counter:cnt_1|cnt[1]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.489 ns                 ;
+; 5.401 ns      ; counter:cnt_1|cnt[5]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.616 ns                 ;
+; 5.402 ns      ; counter:cnt_1|cnt[5]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.617 ns                 ;
+; 5.405 ns      ; counter:cnt_1|cnt[5]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.620 ns                 ;
+; 5.408 ns      ; counter:cnt_1|cnt[4]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.623 ns                 ;
+; 5.415 ns      ; counter:cnt_1|cnt[2]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.630 ns                 ;
+; 5.441 ns      ; counter:cnt_1|cnt[2]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 1.656 ns                 ;
+; 5.570 ns      ; counter:cnt_1|cnt[0]                 ; st_check_start_s                     ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.784 ns                  ; 1.786 ns                 ;
+; 5.571 ns      ; counter:cnt_1|cnt[0]                 ; st_start_yes_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.784 ns                  ; 1.787 ns                 ;
+; 5.574 ns      ; counter:cnt_1|cnt[0]                 ; mode_trigger_s                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.784 ns                  ; 1.790 ns                 ;
+; 5.671 ns      ; counter:cnt_1|cnt[0]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.784 ns                  ; 1.887 ns                 ;
+; 5.936 ns      ; counter:cnt_1|cnt[1]                 ; mode_trigger_r                       ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; 0.000 ns                   ; -3.785 ns                  ; 2.151 ns                 ;
++---------------+--------------------------------------+--------------------------------------+--------------------------------------------+--------------------------------------------+----------------------------+----------------------------+--------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; tsu                                                                                               ;
++-------+--------------+------------+-----------------+------------------------------+--------------+
+; Slack ; Required tsu ; Actual tsu ; From            ; To                           ; To Clock     ;
++-------+--------------+------------+-----------------+------------------------------+--------------+
+; N/A   ; None         ; 2.097 ns   ; Input_Data_Line ; st_start_yes_s               ; System_Clock ;
+; N/A   ; None         ; 0.981 ns   ; Input_Data_Line ; edge_sensor:ES_in|q1         ; System_Clock ;
+; N/A   ; None         ; -1.114 ns  ; Input_Data_Line ; D_trigger:parity_d_trigger|q ; System_Clock ;
+; N/A   ; None         ; -1.437 ns  ; Input_Data_Line ; D_trigger:d_trigger_0|q      ; System_Clock ;
++-------+--------------+------------+-----------------+------------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                               ;
++-------+--------------+------------+--------------------------------------------+-------------------+--------------+
+; Slack ; Required tco ; Actual tco ; From                                       ; To                ; From Clock   ;
++-------+--------------+------------+--------------------------------------------+-------------------+--------------+
+; N/A   ; None         ; 7.994 ns   ; D_trigger:parity_d_trigger|q               ; parity_vp         ; System_Clock ;
+; N/A   ; None         ; 5.882 ns   ; D_trigger:\d_triggers:6:d_triggers|q       ; shift_d_vp[6]     ; System_Clock ;
+; N/A   ; None         ; 5.820 ns   ; D_trigger:\d_triggers:5:d_triggers|q       ; shift_d_vp[5]     ; System_Clock ;
+; N/A   ; None         ; 5.635 ns   ; D_trigger:\d_triggers:4:d_triggers|q       ; shift_d_vp[4]     ; System_Clock ;
+; N/A   ; None         ; 5.535 ns   ; D_trigger:\d_triggers:7:d_triggers|q       ; shift_d_vp[7]     ; System_Clock ;
+; N/A   ; None         ; 5.084 ns   ; counter:cnt_1|cnt[1]                       ; cnt_q_vp[1]       ; System_Clock ;
+; N/A   ; None         ; 5.083 ns   ; counter:cnt_1|cnt[5]                       ; cnt_q_vp[5]       ; System_Clock ;
+; N/A   ; None         ; 5.073 ns   ; counter:cnt_1|cnt[0]                       ; cnt_q_vp[0]       ; System_Clock ;
+; N/A   ; None         ; 5.068 ns   ; counter:cnt_1|cnt[3]                       ; cnt_q_vp[3]       ; System_Clock ;
+; N/A   ; None         ; 5.061 ns   ; counter:cnt_1|cnt[4]                       ; cnt_q_vp[4]       ; System_Clock ;
+; N/A   ; None         ; 5.061 ns   ; counter:cnt_1|cnt[2]                       ; cnt_q_vp[2]       ; System_Clock ;
+; N/A   ; None         ; 5.039 ns   ; D_trigger:\d_triggers:3:d_triggers|q       ; shift_d_vp[3]     ; System_Clock ;
+; N/A   ; None         ; 4.806 ns   ; D_trigger:d_trigger_0|q                    ; shift_d_vp[0]     ; System_Clock ;
+; N/A   ; None         ; 4.731 ns   ; D_trigger:\d_triggers:1:d_triggers|q       ; shift_d_vp[1]     ; System_Clock ;
+; N/A   ; None         ; 4.143 ns   ; D_trigger:\d_triggers:2:d_triggers|q       ; shift_d_vp[2]     ; System_Clock ;
+; N/A   ; None         ; 2.865 ns   ; bit_locked_s                               ; bit_locked_vp     ; System_Clock ;
+; N/A   ; None         ; 1.777 ns   ; SR_trigger:mode|Q_SR                       ; mode_vp           ; System_Clock ;
+; N/A   ; None         ; 1.617 ns   ; st_check_start_s                           ; st_check_start_vp ; System_Clock ;
+; N/A   ; None         ; 1.586 ns   ; edge_sensor:ES_in|q3                       ; ES_vp             ; System_Clock ;
+; N/A   ; None         ; 1.579 ns   ; st_wait_start_s                            ; st_wait_start_vp  ; System_Clock ;
+; N/A   ; None         ; 1.567 ns   ; st_start_yes_s                             ; st_start_yes_vp   ; System_Clock ;
+; N/A   ; None         ; 1.250 ns   ; pre_rst_s                                  ; Sample_Freq_vp    ; System_Clock ;
+; N/A   ; None         ; -0.108 ns  ; Main_PLL:PLL|altpll:altpll_component|_clk0 ; CLK_100_vp        ; System_Clock ;
++-------+--------------+------------+--------------------------------------------+-------------------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; th                                                                                                      ;
++---------------+-------------+-----------+-----------------+------------------------------+--------------+
+; Minimum Slack ; Required th ; Actual th ; From            ; To                           ; To Clock     ;
++---------------+-------------+-----------+-----------------+------------------------------+--------------+
+; N/A           ; None        ; 2.775 ns  ; Input_Data_Line ; D_trigger:d_trigger_0|q      ; System_Clock ;
+; N/A           ; None        ; 2.472 ns  ; Input_Data_Line ; D_trigger:parity_d_trigger|q ; System_Clock ;
+; N/A           ; None        ; -0.733 ns ; Input_Data_Line ; edge_sensor:ES_in|q1         ; System_Clock ;
+; N/A           ; None        ; -1.849 ns ; Input_Data_Line ; st_start_yes_s               ; System_Clock ;
++---------------+-------------+-----------+-----------------+------------------------------+--------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
+    Info: Processing started: Tue Nov 05 13:55:11 2024
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off uart -c uart --timing_analysis_only
+Info: Parallel compilation is enabled and will use 16 of the 16 processors detected
+Warning: Clock latency analysis for PLL offsets is supported for the current device family, but is not enabled
+Warning: Found 12 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected gated clock "comb~10" as buffer
+    Info: Detected gated clock "d_triggers~11" as buffer
+    Info: Detected gated clock "d_triggers~10" as buffer
+    Info: Detected gated clock "d_triggers~9" as buffer
+    Info: Detected gated clock "d_triggers~8" as buffer
+    Info: Detected gated clock "d_triggers~7" as buffer
+    Info: Detected gated clock "d_triggers~6" as buffer
+    Info: Detected gated clock "d_triggers" as buffer
+    Info: Detected ripple clock "bit_locked_s" as buffer
+    Info: Detected gated clock "comb" as buffer
+    Info: Detected ripple clock "SR_trigger:mode|Q_SR" as buffer
+    Info: Detected ripple clock "pre_rst_s" as buffer
+Info: Found timing assignments -- calculating delays
+Info: Slack time is 3.608 ns for clock "Main_PLL:PLL|altpll:altpll_component|_clk0" between source register "counter:cnt_1|cnt[0]" and destination register "st_start_yes_s"
+    Info: Fmax is 156.45 MHz (period= 6.392 ns)
+    Info: + Largest register to register requirement is 5.968 ns
+        Info: + Setup relationship between source and destination is 10.000 ns
+            Info: + Latch edge is 7.581 ns
+                Info: Clock period of Destination clock "Main_PLL:PLL|altpll:altpll_component|_clk0" is 10.000 ns with  offset of -2.419 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Destination register is 1
+            Info: - Launch edge is -2.419 ns
+                Info: Clock period of Source clock "Main_PLL:PLL|altpll:altpll_component|_clk0" is 10.000 ns with  offset of -2.419 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Source register is 1
+        Info: + Largest clock skew is -3.793 ns
+            Info: + Shortest clock path from clock "Main_PLL:PLL|altpll:altpll_component|_clk0" to destination register is 2.522 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PLL_1; Fanout = 1; CLK Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0'
+                Info: 2: + IC(0.929 ns) + CELL(0.000 ns) = 0.929 ns; Loc. = CLKCTRL_G3; Fanout = 17; COMB Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0~clkctrl'
+                Info: 3: + IC(0.991 ns) + CELL(0.602 ns) = 2.522 ns; Loc. = LCFF_X43_Y22_N13; Fanout = 4; REG Node = 'st_start_yes_s'
+                Info: Total cell delay = 0.602 ns ( 23.87 % )
+                Info: Total interconnect delay = 1.920 ns ( 76.13 % )
+            Info: - Longest clock path from clock "Main_PLL:PLL|altpll:altpll_component|_clk0" to source register is 6.315 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PLL_1; Fanout = 1; CLK Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0'
+                Info: 2: + IC(0.929 ns) + CELL(0.000 ns) = 0.929 ns; Loc. = CLKCTRL_G3; Fanout = 17; COMB Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0~clkctrl'
+                Info: 3: + IC(0.985 ns) + CELL(0.879 ns) = 2.793 ns; Loc. = LCFF_X43_Y21_N17; Fanout = 3; REG Node = 'pre_rst_s'
+                Info: 4: + IC(1.924 ns) + CELL(0.000 ns) = 4.717 ns; Loc. = CLKCTRL_G7; Fanout = 6; COMB Node = 'pre_rst_s~clkctrl'
+                Info: 5: + IC(0.996 ns) + CELL(0.602 ns) = 6.315 ns; Loc. = LCFF_X42_Y22_N17; Fanout = 7; REG Node = 'counter:cnt_1|cnt[0]'
+                Info: Total cell delay = 1.481 ns ( 23.45 % )
+                Info: Total interconnect delay = 4.834 ns ( 76.55 % )
+        Info: - Micro clock to output delay of source is 0.277 ns
+        Info: - Micro setup delay of destination is -0.038 ns
+    Info: - Longest register to register delay is 2.360 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X42_Y22_N17; Fanout = 7; REG Node = 'counter:cnt_1|cnt[0]'
+        Info: 2: + IC(0.881 ns) + CELL(0.322 ns) = 1.203 ns; Loc. = LCCOMB_X43_Y22_N0; Fanout = 4; COMB Node = 'Equal1~0'
+        Info: 3: + IC(0.307 ns) + CELL(0.178 ns) = 1.688 ns; Loc. = LCCOMB_X43_Y22_N4; Fanout = 1; COMB Node = 'st_start_yes_s~0'
+        Info: 4: + IC(0.298 ns) + CELL(0.278 ns) = 2.264 ns; Loc. = LCCOMB_X43_Y22_N12; Fanout = 1; COMB Node = 'st_start_yes_s~2'
+        Info: 5: + IC(0.000 ns) + CELL(0.096 ns) = 2.360 ns; Loc. = LCFF_X43_Y22_N13; Fanout = 4; REG Node = 'st_start_yes_s'
+        Info: Total cell delay = 0.874 ns ( 37.03 % )
+        Info: Total interconnect delay = 1.486 ns ( 62.97 % )
+Info: No valid register-to-register data paths exist for clock "System_Clock"
+Info: Minimum slack time is -2.653 ns for clock "Main_PLL:PLL|altpll:altpll_component|_clk0" between source register "cnt_en_s" and destination register "counter:cnt_1|cnt[0]"
+    Info: + Shortest register to register delay is 1.148 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X44_Y22_N19; Fanout = 7; REG Node = 'cnt_en_s'
+        Info: 2: + IC(0.874 ns) + CELL(0.178 ns) = 1.052 ns; Loc. = LCCOMB_X42_Y22_N16; Fanout = 1; COMB Node = 'counter:cnt_1|cnt[0]~5'
+        Info: 3: + IC(0.000 ns) + CELL(0.096 ns) = 1.148 ns; Loc. = LCFF_X42_Y22_N17; Fanout = 7; REG Node = 'counter:cnt_1|cnt[0]'
+        Info: Total cell delay = 0.274 ns ( 23.87 % )
+        Info: Total interconnect delay = 0.874 ns ( 76.13 % )
+    Info: - Smallest register to register requirement is 3.801 ns
+        Info: + Hold relationship between source and destination is 0.000 ns
+            Info: + Latch edge is -2.419 ns
+                Info: Clock period of Destination clock "Main_PLL:PLL|altpll:altpll_component|_clk0" is 10.000 ns with  offset of -2.419 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Destination register is 1
+                Info: Multicycle Hold factor for Destination register is 1
+            Info: - Launch edge is -2.419 ns
+                Info: Clock period of Source clock "Main_PLL:PLL|altpll:altpll_component|_clk0" is 10.000 ns with  offset of -2.419 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Source register is 1
+                Info: Multicycle Hold factor for Source register is 1
+        Info: + Smallest clock skew is 3.792 ns
+            Info: + Longest clock path from clock "Main_PLL:PLL|altpll:altpll_component|_clk0" to destination register is 6.315 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PLL_1; Fanout = 1; CLK Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0'
+                Info: 2: + IC(0.929 ns) + CELL(0.000 ns) = 0.929 ns; Loc. = CLKCTRL_G3; Fanout = 17; COMB Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0~clkctrl'
+                Info: 3: + IC(0.985 ns) + CELL(0.879 ns) = 2.793 ns; Loc. = LCFF_X43_Y21_N17; Fanout = 3; REG Node = 'pre_rst_s'
+                Info: 4: + IC(1.924 ns) + CELL(0.000 ns) = 4.717 ns; Loc. = CLKCTRL_G7; Fanout = 6; COMB Node = 'pre_rst_s~clkctrl'
+                Info: 5: + IC(0.996 ns) + CELL(0.602 ns) = 6.315 ns; Loc. = LCFF_X42_Y22_N17; Fanout = 7; REG Node = 'counter:cnt_1|cnt[0]'
+                Info: Total cell delay = 1.481 ns ( 23.45 % )
+                Info: Total interconnect delay = 4.834 ns ( 76.55 % )
+            Info: - Shortest clock path from clock "Main_PLL:PLL|altpll:altpll_component|_clk0" to source register is 2.523 ns
+                Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PLL_1; Fanout = 1; CLK Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0'
+                Info: 2: + IC(0.929 ns) + CELL(0.000 ns) = 0.929 ns; Loc. = CLKCTRL_G3; Fanout = 17; COMB Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0~clkctrl'
+                Info: 3: + IC(0.992 ns) + CELL(0.602 ns) = 2.523 ns; Loc. = LCFF_X44_Y22_N19; Fanout = 7; REG Node = 'cnt_en_s'
+                Info: Total cell delay = 0.602 ns ( 23.86 % )
+                Info: Total interconnect delay = 1.921 ns ( 76.14 % )
+        Info: - Micro clock to output delay of source is 0.277 ns
+        Info: + Micro hold delay of destination is 0.286 ns
+Warning: Can't achieve minimum setup and hold requirement Main_PLL:PLL|altpll:altpll_component|_clk0 along 12 path(s). See Report window for details.
+Info: tsu for register "st_start_yes_s" (data pin = "Input_Data_Line", clock pin = "System_Clock") is 2.097 ns
+    Info: + Longest pin to register delay is 2.238 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X40_Y22_N16; Fanout = 4; PIN Node = 'Input_Data_Line'
+        Info: 2: + IC(0.837 ns) + CELL(0.491 ns) = 1.328 ns; Loc. = LCCOMB_X43_Y22_N14; Fanout = 1; COMB Node = 'st_start_yes_s~1'
+        Info: 3: + IC(0.293 ns) + CELL(0.521 ns) = 2.142 ns; Loc. = LCCOMB_X43_Y22_N12; Fanout = 1; COMB Node = 'st_start_yes_s~2'
+        Info: 4: + IC(0.000 ns) + CELL(0.096 ns) = 2.238 ns; Loc. = LCFF_X43_Y22_N13; Fanout = 4; REG Node = 'st_start_yes_s'
+        Info: Total cell delay = 1.108 ns ( 49.51 % )
+        Info: Total interconnect delay = 1.130 ns ( 50.49 % )
+    Info: + Micro setup delay of destination is -0.038 ns
+    Info: - Offset between input clock "System_Clock" and output clock "Main_PLL:PLL|altpll:altpll_component|_clk0" is -2.419 ns
+    Info: - Shortest clock path from clock "Main_PLL:PLL|altpll:altpll_component|_clk0" to destination register is 2.522 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PLL_1; Fanout = 1; CLK Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0'
+        Info: 2: + IC(0.929 ns) + CELL(0.000 ns) = 0.929 ns; Loc. = CLKCTRL_G3; Fanout = 17; COMB Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0~clkctrl'
+        Info: 3: + IC(0.991 ns) + CELL(0.602 ns) = 2.522 ns; Loc. = LCFF_X43_Y22_N13; Fanout = 4; REG Node = 'st_start_yes_s'
+        Info: Total cell delay = 0.602 ns ( 23.87 % )
+        Info: Total interconnect delay = 1.920 ns ( 76.13 % )
+Info: tco from clock "System_Clock" to destination pin "parity_vp" through register "D_trigger:parity_d_trigger|q" is 7.994 ns
+    Info: + Offset between input clock "System_Clock" and output clock "Main_PLL:PLL|altpll:altpll_component|_clk0" is -2.419 ns
+    Info: + Longest clock path from clock "Main_PLL:PLL|altpll:altpll_component|_clk0" to source register is 6.017 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PLL_1; Fanout = 1; CLK Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0'
+        Info: 2: + IC(0.929 ns) + CELL(0.000 ns) = 0.929 ns; Loc. = CLKCTRL_G3; Fanout = 17; COMB Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0~clkctrl'
+        Info: 3: + IC(0.985 ns) + CELL(0.879 ns) = 2.793 ns; Loc. = LCFF_X43_Y21_N17; Fanout = 3; REG Node = 'pre_rst_s'
+        Info: 4: + IC(0.366 ns) + CELL(0.879 ns) = 4.038 ns; Loc. = LCFF_X43_Y21_N23; Fanout = 10; REG Node = 'bit_locked_s'
+        Info: 5: + IC(0.937 ns) + CELL(0.178 ns) = 5.153 ns; Loc. = LCCOMB_X39_Y21_N6; Fanout = 1; COMB Node = 'comb~10'
+        Info: 6: + IC(0.262 ns) + CELL(0.602 ns) = 6.017 ns; Loc. = LCFF_X39_Y21_N1; Fanout = 2; REG Node = 'D_trigger:parity_d_trigger|q'
+        Info: Total cell delay = 2.538 ns ( 42.18 % )
+        Info: Total interconnect delay = 3.479 ns ( 57.82 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Longest register to pin delay is 4.119 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X39_Y21_N1; Fanout = 2; REG Node = 'D_trigger:parity_d_trigger|q'
+        Info: 2: + IC(1.133 ns) + CELL(2.986 ns) = 4.119 ns; Loc. = PIN_G15; Fanout = 0; PIN Node = 'parity_vp'
+        Info: Total cell delay = 2.986 ns ( 72.49 % )
+        Info: Total interconnect delay = 1.133 ns ( 27.51 % )
+Info: th for register "D_trigger:d_trigger_0|q" (data pin = "Input_Data_Line", clock pin = "System_Clock") is 2.775 ns
+    Info: + Offset between input clock "System_Clock" and output clock "Main_PLL:PLL|altpll:altpll_component|_clk0" is -2.419 ns
+    Info: + Longest clock path from clock "Main_PLL:PLL|altpll:altpll_component|_clk0" to destination register is 6.031 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PLL_1; Fanout = 1; CLK Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0'
+        Info: 2: + IC(0.929 ns) + CELL(0.000 ns) = 0.929 ns; Loc. = CLKCTRL_G3; Fanout = 17; COMB Node = 'Main_PLL:PLL|altpll:altpll_component|_clk0~clkctrl'
+        Info: 3: + IC(0.985 ns) + CELL(0.879 ns) = 2.793 ns; Loc. = LCFF_X43_Y21_N17; Fanout = 3; REG Node = 'pre_rst_s'
+        Info: 4: + IC(0.366 ns) + CELL(0.879 ns) = 4.038 ns; Loc. = LCFF_X43_Y21_N23; Fanout = 10; REG Node = 'bit_locked_s'
+        Info: 5: + IC(0.392 ns) + CELL(0.178 ns) = 4.608 ns; Loc. = LCCOMB_X43_Y21_N4; Fanout = 1; COMB Node = 'comb'
+        Info: 6: + IC(0.821 ns) + CELL(0.602 ns) = 6.031 ns; Loc. = LCFF_X44_Y22_N13; Fanout = 2; REG Node = 'D_trigger:d_trigger_0|q'
+        Info: Total cell delay = 2.538 ns ( 42.08 % )
+        Info: Total interconnect delay = 3.493 ns ( 57.92 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+    Info: - Shortest pin to register delay is 1.123 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X40_Y22_N16; Fanout = 4; PIN Node = 'Input_Data_Line'
+        Info: 2: + IC(0.849 ns) + CELL(0.178 ns) = 1.027 ns; Loc. = LCCOMB_X44_Y22_N12; Fanout = 1; COMB Node = 'D_trigger:d_trigger_0|q~feeder'
+        Info: 3: + IC(0.000 ns) + CELL(0.096 ns) = 1.123 ns; Loc. = LCFF_X44_Y22_N13; Fanout = 2; REG Node = 'D_trigger:d_trigger_0|q'
+        Info: Total cell delay = 0.274 ns ( 24.40 % )
+        Info: Total interconnect delay = 0.849 ns ( 75.60 % )
+Critical Warning: Timing requirements for slow timing model timing analysis were not met. See Report window for details.
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 189 megabytes
+    Info: Processing ended: Tue Nov 05 13:55:11 2024
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

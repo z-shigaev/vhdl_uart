@@ -1,0 +1,220 @@
+|uart
+System_Clock => Main_PLL:PLL.inclk0
+Input_Data_Line => parity_in.IN1
+Input_Data_Line => D_trigger:d_trigger_0.d
+Input_Data_Line => st_start_yes_s.OUTPUTSELECT
+Input_Data_Line => edge_sensor:ES_in.d
+IRQ <= IRQ.DB_MAX_OUTPUT_PORT_TYPE
+DataBusOut[0] <= DataBusOut[0].DB_MAX_OUTPUT_PORT_TYPE
+DataBusOut[1] <= DataBusOut[1].DB_MAX_OUTPUT_PORT_TYPE
+DataBusOut[2] <= DataBusOut[2].DB_MAX_OUTPUT_PORT_TYPE
+DataBusOut[3] <= DataBusOut[3].DB_MAX_OUTPUT_PORT_TYPE
+DataBusOut[4] <= DataBusOut[4].DB_MAX_OUTPUT_PORT_TYPE
+DataBusOut[5] <= DataBusOut[5].DB_MAX_OUTPUT_PORT_TYPE
+DataBusOut[6] <= DataBusOut[6].DB_MAX_OUTPUT_PORT_TYPE
+DataBusOut[7] <= DataBusOut[7].DB_MAX_OUTPUT_PORT_TYPE
+Nyquist_Sample_Enable_vp <= Nyquist_Sample_Enable_vp.DB_MAX_OUTPUT_PORT_TYPE
+Received_Data_Bits_vp <= Received_Data_Bits_vp.DB_MAX_OUTPUT_PORT_TYPE
+Working_State_Flag_vp <= Working_State_Flag_vp.DB_MAX_OUTPUT_PORT_TYPE
+Parity_Current_Value_vp <= Parity_Current_Value_vp.DB_MAX_OUTPUT_PORT_TYPE
+Sample_Number_Counter_vp <= comb.DB_MAX_OUTPUT_PORT_TYPE
+CLK_100_vp <= Main_PLL:PLL.c0
+Sample_Freq_vp <= pre_rst_s.DB_MAX_OUTPUT_PORT_TYPE
+ES_vp <= edge_sensor:ES_in.q3
+st_wait_start_vp <= st_wait_start_s.DB_MAX_OUTPUT_PORT_TYPE
+st_check_start_vp <= st_check_start_s.DB_MAX_OUTPUT_PORT_TYPE
+st_start_yes_vp <= st_start_yes_s.DB_MAX_OUTPUT_PORT_TYPE
+mode_vp <= SR_trigger:mode.Q_SR
+shift_d_vp[0] <= D_trigger:d_trigger_0.q
+shift_d_vp[1] <= D_trigger:d_triggers:1:d_triggers.q
+shift_d_vp[2] <= D_trigger:d_triggers:2:d_triggers.q
+shift_d_vp[3] <= D_trigger:d_triggers:3:d_triggers.q
+shift_d_vp[4] <= D_trigger:d_triggers:4:d_triggers.q
+shift_d_vp[5] <= D_trigger:d_triggers:5:d_triggers.q
+shift_d_vp[6] <= D_trigger:d_triggers:6:d_triggers.q
+shift_d_vp[7] <= D_trigger:d_triggers:7:d_triggers.q
+cnt_q_vp[0] <= counter:cnt_1.q[0]
+cnt_q_vp[1] <= counter:cnt_1.q[1]
+cnt_q_vp[2] <= counter:cnt_1.q[2]
+cnt_q_vp[3] <= counter:cnt_1.q[3]
+cnt_q_vp[4] <= counter:cnt_1.q[4]
+cnt_q_vp[5] <= counter:cnt_1.q[5]
+bit_locked_vp <= bit_locked_s.DB_MAX_OUTPUT_PORT_TYPE
+shift_register_clock_vp <= shift_register_clock.DB_MAX_OUTPUT_PORT_TYPE
+parity_vp <= D_trigger:parity_d_trigger.q
+
+
+|uart|Main_PLL:PLL
+inclk0 => altpll:altpll_component.inclk[0]
+c0 <= altpll:altpll_component.clk[0]
+
+
+|uart|Main_PLL:PLL|altpll:altpll_component
+inclk[0] => pll.CLK
+inclk[1] => ~NO_FANOUT~
+fbin => ~NO_FANOUT~
+pllena => ~NO_FANOUT~
+clkswitch => ~NO_FANOUT~
+areset => ~NO_FANOUT~
+pfdena => ~NO_FANOUT~
+clkena[0] => ~NO_FANOUT~
+clkena[1] => ~NO_FANOUT~
+clkena[2] => ~NO_FANOUT~
+clkena[3] => ~NO_FANOUT~
+clkena[4] => ~NO_FANOUT~
+clkena[5] => ~NO_FANOUT~
+extclkena[0] => ~NO_FANOUT~
+extclkena[1] => ~NO_FANOUT~
+extclkena[2] => ~NO_FANOUT~
+extclkena[3] => ~NO_FANOUT~
+scanclk => ~NO_FANOUT~
+scanclkena => ~NO_FANOUT~
+scanaclr => ~NO_FANOUT~
+scanread => ~NO_FANOUT~
+scanwrite => ~NO_FANOUT~
+scandata => ~NO_FANOUT~
+phasecounterselect[0] => ~NO_FANOUT~
+phasecounterselect[1] => ~NO_FANOUT~
+phasecounterselect[2] => ~NO_FANOUT~
+phasecounterselect[3] => ~NO_FANOUT~
+phaseupdown => ~NO_FANOUT~
+phasestep => ~NO_FANOUT~
+configupdate => ~NO_FANOUT~
+fbmimicbidir <> <GND>
+clk[0] <= clk[0].DB_MAX_OUTPUT_PORT_TYPE
+clk[1] <= <GND>
+clk[2] <= <GND>
+clk[3] <= <GND>
+clk[4] <= <GND>
+clk[5] <= <GND>
+extclk[0] <= <GND>
+extclk[1] <= <GND>
+extclk[2] <= <GND>
+extclk[3] <= <GND>
+clkbad[0] <= <GND>
+clkbad[1] <= <GND>
+enable1 <= <GND>
+enable0 <= <GND>
+activeclock <= <GND>
+clkloss <= <GND>
+locked <= <GND>
+scandataout <= <GND>
+scandone <= <GND>
+sclkout0 <= <GND>
+sclkout1 <= sclkout1.DB_MAX_OUTPUT_PORT_TYPE
+phasedone <= <GND>
+vcooverrange <= <GND>
+vcounderrange <= <GND>
+fbout <= <GND>
+fref <= <GND>
+icdrclk <= <GND>
+
+
+|uart|edge_sensor:ES_in
+clk => q3~reg0.CLK
+clk => q2.CLK
+clk => q1.CLK
+d => q1.DATAB
+ena => q1.OUTPUTSELECT
+ena => q2.OUTPUTSELECT
+ena => q3.OUTPUTSELECT
+clr => q1.OUTPUTSELECT
+clr => q2.OUTPUTSELECT
+clr => q3.OUTPUTSELECT
+q3 <= q3~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart|counter:cnt_1
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+res => cnt.OUTPUTSELECT
+res => cnt.OUTPUTSELECT
+res => cnt.OUTPUTSELECT
+res => cnt.OUTPUTSELECT
+res => cnt.OUTPUTSELECT
+res => cnt.OUTPUTSELECT
+en => cnt.OUTPUTSELECT
+en => cnt.OUTPUTSELECT
+en => cnt.OUTPUTSELECT
+en => cnt.OUTPUTSELECT
+en => cnt.OUTPUTSELECT
+en => cnt.OUTPUTSELECT
+dir => cnt.OUTPUTSELECT
+dir => cnt.OUTPUTSELECT
+dir => cnt.OUTPUTSELECT
+dir => cnt.OUTPUTSELECT
+dir => cnt.OUTPUTSELECT
+dir => cnt.OUTPUTSELECT
+q[0] <= cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= cnt[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= cnt[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= cnt[3].DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= cnt[4].DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= cnt[5].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart|SR_trigger:mode
+R => Q_SR.OUTPUTSELECT
+S => Q_SR.OUTPUTSELECT
+clk_SR => Q_SR~reg0.CLK
+Q_SR <= Q_SR~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart|D_trigger:d_trigger_0
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart|D_trigger:\d_triggers:1:d_triggers
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart|D_trigger:\d_triggers:2:d_triggers
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart|D_trigger:\d_triggers:3:d_triggers
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart|D_trigger:\d_triggers:4:d_triggers
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart|D_trigger:\d_triggers:5:d_triggers
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart|D_trigger:\d_triggers:6:d_triggers
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart|D_trigger:\d_triggers:7:d_triggers
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart|D_trigger:parity_d_trigger
+d => q~reg0.DATAIN
+clk => q~reg0.CLK
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,318 @@
+Simulator report for uart
+Tue Nov 05 13:55:43 2024
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 20.0 us      ;
+; Simulation Netlist Size     ; 126 nodes    ;
+; Simulation Coverage         ;      83.58 % ;
+; Total Number of Transitions ; 38629        ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
+; Device                      ; EP2C20F484C7 ;
++-----------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Timing     ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF       ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off        ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto       ; Auto          ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      83.58 % ;
+; Total nodes checked                                 ; 126          ;
+; Total output ports checked                          ; 134          ;
+; Total output ports with complete 1/0-value coverage ; 112          ;
+; Total output ports with no 1/0-value coverage       ; 15           ;
+; Total output ports with no 1-value coverage         ; 16           ;
+; Total output ports with no 0-value coverage         ; 21           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                            ;
++----------------------------------------------------------+----------------------------------------------------------+------------------+
+; Node Name                                                ; Output Port Name                                         ; Output Port Type ;
++----------------------------------------------------------+----------------------------------------------------------+------------------+
+; |uart|Main_PLL:PLL|altpll:altpll_component|pll           ; |uart|Main_PLL:PLL|altpll:altpll_component|_clk0         ; clk0             ;
+; |uart|counter:cnt_1|cnt[1]                               ; |uart|counter:cnt_1|cnt[1]                               ; regout           ;
+; |uart|counter:cnt_1|cnt[2]                               ; |uart|counter:cnt_1|cnt[2]                               ; regout           ;
+; |uart|counter:cnt_1|cnt[3]                               ; |uart|counter:cnt_1|cnt[3]                               ; regout           ;
+; |uart|counter:cnt_1|cnt[4]                               ; |uart|counter:cnt_1|cnt[4]                               ; regout           ;
+; |uart|counter:cnt_1|cnt[5]                               ; |uart|counter:cnt_1|cnt[5]                               ; regout           ;
+; |uart|mode_trigger_r                                     ; |uart|mode_trigger_r                                     ; regout           ;
+; |uart|counter:cnt_1|cnt[1]~6                             ; |uart|counter:cnt_1|cnt[1]~6                             ; combout          ;
+; |uart|counter:cnt_1|cnt[1]~6                             ; |uart|counter:cnt_1|cnt[1]~7                             ; cout             ;
+; |uart|counter:cnt_1|cnt[2]~8                             ; |uart|counter:cnt_1|cnt[2]~8                             ; combout          ;
+; |uart|counter:cnt_1|cnt[2]~8                             ; |uart|counter:cnt_1|cnt[2]~9                             ; cout             ;
+; |uart|counter:cnt_1|cnt[3]~10                            ; |uart|counter:cnt_1|cnt[3]~10                            ; combout          ;
+; |uart|counter:cnt_1|cnt[3]~10                            ; |uart|counter:cnt_1|cnt[3]~11                            ; cout             ;
+; |uart|counter:cnt_1|cnt[4]~12                            ; |uart|counter:cnt_1|cnt[4]~12                            ; combout          ;
+; |uart|counter:cnt_1|cnt[4]~12                            ; |uart|counter:cnt_1|cnt[4]~13                            ; cout             ;
+; |uart|counter:cnt_1|cnt[5]~14                            ; |uart|counter:cnt_1|cnt[5]~14                            ; combout          ;
+; |uart|Add0~0                                             ; |uart|Add0~0                                             ; combout          ;
+; |uart|Add0~0                                             ; |uart|Add0~1                                             ; cout             ;
+; |uart|Add0~2                                             ; |uart|Add0~2                                             ; combout          ;
+; |uart|Add0~2                                             ; |uart|Add0~3                                             ; cout             ;
+; |uart|Add0~4                                             ; |uart|Add0~4                                             ; combout          ;
+; |uart|Add0~4                                             ; |uart|Add0~5                                             ; cout             ;
+; |uart|Add0~6                                             ; |uart|Add0~6                                             ; combout          ;
+; |uart|Add0~6                                             ; |uart|Add0~7                                             ; cout             ;
+; |uart|Add0~8                                             ; |uart|Add0~8                                             ; combout          ;
+; |uart|pre_rst_s                                          ; |uart|pre_rst_s                                          ; regout           ;
+; |uart|edge_sensor:ES_in|q3                               ; |uart|edge_sensor:ES_in|q3                               ; regout           ;
+; |uart|st_check_start_s                                   ; |uart|st_check_start_s                                   ; regout           ;
+; |uart|st_start_yes_s                                     ; |uart|st_start_yes_s                                     ; regout           ;
+; |uart|SR_trigger:mode|Q_SR                               ; |uart|SR_trigger:mode|Q_SR                               ; regout           ;
+; |uart|D_trigger:d_trigger_0|q                            ; |uart|D_trigger:d_trigger_0|q                            ; regout           ;
+; |uart|D_trigger:\d_triggers:1:d_triggers|q               ; |uart|D_trigger:\d_triggers:1:d_triggers|q               ; regout           ;
+; |uart|D_trigger:\d_triggers:2:d_triggers|q               ; |uart|D_trigger:\d_triggers:2:d_triggers|q               ; regout           ;
+; |uart|D_trigger:\d_triggers:3:d_triggers|q               ; |uart|D_trigger:\d_triggers:3:d_triggers|q               ; regout           ;
+; |uart|D_trigger:\d_triggers:4:d_triggers|q               ; |uart|D_trigger:\d_triggers:4:d_triggers|q               ; regout           ;
+; |uart|D_trigger:\d_triggers:5:d_triggers|q               ; |uart|D_trigger:\d_triggers:5:d_triggers|q               ; regout           ;
+; |uart|D_trigger:\d_triggers:6:d_triggers|q               ; |uart|D_trigger:\d_triggers:6:d_triggers|q               ; regout           ;
+; |uart|counter:cnt_1|cnt[0]                               ; |uart|counter:cnt_1|cnt[0]                               ; regout           ;
+; |uart|bit_locked_s                                       ; |uart|bit_locked_s                                       ; regout           ;
+; |uart|D_trigger:parity_d_trigger|q                       ; |uart|D_trigger:parity_d_trigger|q                       ; regout           ;
+; |uart|prescaler_s[4]                                     ; |uart|prescaler_s[4]                                     ; regout           ;
+; |uart|prescaler_s[3]                                     ; |uart|prescaler_s[3]                                     ; regout           ;
+; |uart|prescaler_s[2]                                     ; |uart|prescaler_s[2]                                     ; regout           ;
+; |uart|prescaler_s[1]                                     ; |uart|prescaler_s[1]                                     ; regout           ;
+; |uart|Equal13~0                                          ; |uart|Equal13~0                                          ; combout          ;
+; |uart|prescaler_s[0]                                     ; |uart|prescaler_s[0]                                     ; regout           ;
+; |uart|Equal13~1                                          ; |uart|Equal13~1                                          ; combout          ;
+; |uart|edge_sensor:ES_in|q1                               ; |uart|edge_sensor:ES_in|q1                               ; regout           ;
+; |uart|edge_sensor:ES_in|q2                               ; |uart|edge_sensor:ES_in|q2                               ; regout           ;
+; |uart|edge_sensor:ES_in|q3~0                             ; |uart|edge_sensor:ES_in|q3~0                             ; combout          ;
+; |uart|st_check_start_s~0                                 ; |uart|st_check_start_s~0                                 ; combout          ;
+; |uart|Equal1~0                                           ; |uart|Equal1~0                                           ; combout          ;
+; |uart|Equal1~1                                           ; |uart|Equal1~1                                           ; combout          ;
+; |uart|st_check_start_s~1                                 ; |uart|st_check_start_s~1                                 ; combout          ;
+; |uart|st_start_yes_s~0                                   ; |uart|st_start_yes_s~0                                   ; combout          ;
+; |uart|st_start_yes_s~1                                   ; |uart|st_start_yes_s~1                                   ; combout          ;
+; |uart|st_start_yes_s~2                                   ; |uart|st_start_yes_s~2                                   ; combout          ;
+; |uart|mode_trigger_s                                     ; |uart|mode_trigger_s                                     ; regout           ;
+; |uart|SR_trigger:mode|Q_SR~0                             ; |uart|SR_trigger:mode|Q_SR~0                             ; combout          ;
+; |uart|counter:cnt_1|cnt[0]~5                             ; |uart|counter:cnt_1|cnt[0]~5                             ; combout          ;
+; |uart|bit_locked_s~0                                     ; |uart|bit_locked_s~0                                     ; combout          ;
+; |uart|bit_locked_s~1                                     ; |uart|bit_locked_s~1                                     ; combout          ;
+; |uart|D_trigger:parity_d_trigger|q~0                     ; |uart|D_trigger:parity_d_trigger|q~0                     ; combout          ;
+; |uart|prescaler_s~0                                      ; |uart|prescaler_s~0                                      ; combout          ;
+; |uart|prescaler_s~1                                      ; |uart|prescaler_s~1                                      ; combout          ;
+; |uart|prescaler_s~2                                      ; |uart|prescaler_s~2                                      ; combout          ;
+; |uart|mode_trigger_s~0                                   ; |uart|mode_trigger_s~0                                   ; combout          ;
+; |uart|LessThan0~0                                        ; |uart|LessThan0~0                                        ; combout          ;
+; |uart|LessThan0~1                                        ; |uart|LessThan0~1                                        ; combout          ;
+; |uart|comb                                               ; |uart|comb                                               ; combout          ;
+; |uart|edge_sensor:ES_in|q1~0                             ; |uart|edge_sensor:ES_in|q1~0                             ; combout          ;
+; |uart|d_triggers                                         ; |uart|d_triggers                                         ; combout          ;
+; |uart|d_triggers~0                                       ; |uart|d_triggers~6                                       ; combout          ;
+; |uart|d_triggers~1                                       ; |uart|d_triggers~7                                       ; combout          ;
+; |uart|d_triggers~2                                       ; |uart|d_triggers~8                                       ; combout          ;
+; |uart|d_triggers~3                                       ; |uart|d_triggers~9                                       ; combout          ;
+; |uart|d_triggers~4                                       ; |uart|d_triggers~10                                      ; combout          ;
+; |uart|d_triggers~5                                       ; |uart|d_triggers~11                                      ; combout          ;
+; |uart|comb~9                                             ; |uart|comb~10                                            ; combout          ;
+; |uart|parity_vp                                          ; |uart|parity_vp                                          ; padio            ;
+; |uart|System_Clock                                       ; |uart|System_Clock~corein                                ; combout          ;
+; |uart|CLK_100_vp                                         ; |uart|CLK_100_vp                                         ; pin_out          ;
+; |uart|Sample_Freq_vp                                     ; |uart|Sample_Freq_vp                                     ; pin_out          ;
+; |uart|ES_vp                                              ; |uart|ES_vp                                              ; pin_out          ;
+; |uart|st_check_start_vp                                  ; |uart|st_check_start_vp                                  ; pin_out          ;
+; |uart|st_start_yes_vp                                    ; |uart|st_start_yes_vp                                    ; pin_out          ;
+; |uart|mode_vp                                            ; |uart|mode_vp                                            ; pin_out          ;
+; |uart|shift_d_vp[0]                                      ; |uart|shift_d_vp[0]                                      ; pin_out          ;
+; |uart|shift_d_vp[1]                                      ; |uart|shift_d_vp[1]                                      ; pin_out          ;
+; |uart|shift_d_vp[2]                                      ; |uart|shift_d_vp[2]                                      ; pin_out          ;
+; |uart|shift_d_vp[3]                                      ; |uart|shift_d_vp[3]                                      ; pin_out          ;
+; |uart|shift_d_vp[4]                                      ; |uart|shift_d_vp[4]                                      ; pin_out          ;
+; |uart|shift_d_vp[5]                                      ; |uart|shift_d_vp[5]                                      ; pin_out          ;
+; |uart|shift_d_vp[6]                                      ; |uart|shift_d_vp[6]                                      ; pin_out          ;
+; |uart|cnt_q_vp[0]                                        ; |uart|cnt_q_vp[0]                                        ; pin_out          ;
+; |uart|cnt_q_vp[1]                                        ; |uart|cnt_q_vp[1]                                        ; pin_out          ;
+; |uart|cnt_q_vp[2]                                        ; |uart|cnt_q_vp[2]                                        ; pin_out          ;
+; |uart|cnt_q_vp[3]                                        ; |uart|cnt_q_vp[3]                                        ; pin_out          ;
+; |uart|cnt_q_vp[4]                                        ; |uart|cnt_q_vp[4]                                        ; pin_out          ;
+; |uart|cnt_q_vp[5]                                        ; |uart|cnt_q_vp[5]                                        ; pin_out          ;
+; |uart|bit_locked_vp                                      ; |uart|bit_locked_vp                                      ; pin_out          ;
+; |uart|Input_Data_Line                                    ; |uart|Input_Data_Line                                    ; out              ;
+; |uart|Main_PLL:PLL|altpll:altpll_component|_clk0~clkctrl ; |uart|Main_PLL:PLL|altpll:altpll_component|_clk0~clkctrl ; outclk           ;
+; |uart|pre_rst_s~clkctrl                                  ; |uart|pre_rst_s~clkctrl                                  ; outclk           ;
+; |uart|D_trigger:\d_triggers:1:d_triggers|q~feeder        ; |uart|D_trigger:\d_triggers:1:d_triggers|q~feeder        ; combout          ;
+; |uart|D_trigger:\d_triggers:3:d_triggers|q~feeder        ; |uart|D_trigger:\d_triggers:3:d_triggers|q~feeder        ; combout          ;
+; |uart|D_trigger:\d_triggers:4:d_triggers|q~feeder        ; |uart|D_trigger:\d_triggers:4:d_triggers|q~feeder        ; combout          ;
+; |uart|D_trigger:\d_triggers:5:d_triggers|q~feeder        ; |uart|D_trigger:\d_triggers:5:d_triggers|q~feeder        ; combout          ;
+; |uart|D_trigger:\d_triggers:6:d_triggers|q~feeder        ; |uart|D_trigger:\d_triggers:6:d_triggers|q~feeder        ; combout          ;
+; |uart|D_trigger:\d_triggers:7:d_triggers|q~feeder        ; |uart|D_trigger:\d_triggers:7:d_triggers|q~feeder        ; combout          ;
+; |uart|edge_sensor:ES_in|q2~feeder                        ; |uart|edge_sensor:ES_in|q2~feeder                        ; combout          ;
+; |uart|D_trigger:d_trigger_0|q~feeder                     ; |uart|D_trigger:d_trigger_0|q~feeder                     ; combout          ;
++----------------------------------------------------------+----------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                           ;
++--------------------------------+--------------------------------+------------------+
+; Node Name                      ; Output Port Name               ; Output Port Type ;
++--------------------------------+--------------------------------+------------------+
+; |uart|IRQ                      ; |uart|IRQ                      ; padio            ;
+; |uart|DataBusOut[0]            ; |uart|DataBusOut[0]            ; padio            ;
+; |uart|DataBusOut[1]            ; |uart|DataBusOut[1]            ; padio            ;
+; |uart|DataBusOut[2]            ; |uart|DataBusOut[2]            ; padio            ;
+; |uart|DataBusOut[3]            ; |uart|DataBusOut[3]            ; padio            ;
+; |uart|DataBusOut[4]            ; |uart|DataBusOut[4]            ; padio            ;
+; |uart|DataBusOut[5]            ; |uart|DataBusOut[5]            ; padio            ;
+; |uart|DataBusOut[6]            ; |uart|DataBusOut[6]            ; padio            ;
+; |uart|DataBusOut[7]            ; |uart|DataBusOut[7]            ; padio            ;
+; |uart|Nyquist_Sample_Enable_vp ; |uart|Nyquist_Sample_Enable_vp ; padio            ;
+; |uart|Received_Data_Bits_vp    ; |uart|Received_Data_Bits_vp    ; padio            ;
+; |uart|Working_State_Flag_vp    ; |uart|Working_State_Flag_vp    ; padio            ;
+; |uart|Parity_Current_Value_vp  ; |uart|Parity_Current_Value_vp  ; padio            ;
+; |uart|Sample_Number_Counter_vp ; |uart|Sample_Number_Counter_vp ; padio            ;
+; |uart|st_wait_start_vp         ; |uart|st_wait_start_vp         ; pin_out          ;
+; |uart|shift_register_clock_vp  ; |uart|shift_register_clock_vp  ; pin_out          ;
++--------------------------------+--------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++------------------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                                   ;
++--------------------------------------------+--------------------------------------------+------------------+
+; Node Name                                  ; Output Port Name                           ; Output Port Type ;
++--------------------------------------------+--------------------------------------------+------------------+
+; |uart|st_wait_start_s                      ; |uart|st_wait_start_s                      ; regout           ;
+; |uart|D_trigger:\d_triggers:7:d_triggers|q ; |uart|D_trigger:\d_triggers:7:d_triggers|q ; regout           ;
+; |uart|st_wait_start_s~0                    ; |uart|st_wait_start_s~0                    ; combout          ;
+; |uart|cnt_en_s                             ; |uart|cnt_en_s                             ; regout           ;
+; |uart|cnt_en_s~0                           ; |uart|cnt_en_s~0                           ; combout          ;
+; |uart|IRQ                                  ; |uart|IRQ                                  ; padio            ;
+; |uart|DataBusOut[0]                        ; |uart|DataBusOut[0]                        ; padio            ;
+; |uart|DataBusOut[1]                        ; |uart|DataBusOut[1]                        ; padio            ;
+; |uart|DataBusOut[2]                        ; |uart|DataBusOut[2]                        ; padio            ;
+; |uart|DataBusOut[3]                        ; |uart|DataBusOut[3]                        ; padio            ;
+; |uart|DataBusOut[4]                        ; |uart|DataBusOut[4]                        ; padio            ;
+; |uart|DataBusOut[5]                        ; |uart|DataBusOut[5]                        ; padio            ;
+; |uart|DataBusOut[6]                        ; |uart|DataBusOut[6]                        ; padio            ;
+; |uart|DataBusOut[7]                        ; |uart|DataBusOut[7]                        ; padio            ;
+; |uart|Nyquist_Sample_Enable_vp             ; |uart|Nyquist_Sample_Enable_vp             ; padio            ;
+; |uart|Received_Data_Bits_vp                ; |uart|Received_Data_Bits_vp                ; padio            ;
+; |uart|Working_State_Flag_vp                ; |uart|Working_State_Flag_vp                ; padio            ;
+; |uart|Parity_Current_Value_vp              ; |uart|Parity_Current_Value_vp              ; padio            ;
+; |uart|Sample_Number_Counter_vp             ; |uart|Sample_Number_Counter_vp             ; padio            ;
+; |uart|shift_d_vp[7]                        ; |uart|shift_d_vp[7]                        ; pin_out          ;
+; |uart|shift_register_clock_vp              ; |uart|shift_register_clock_vp              ; pin_out          ;
++--------------------------------------------+--------------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
+    Info: Processing started: Tue Nov 05 13:55:40 2024
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off uart -c uart
+Info: Using vector source file "Y:/YandexDisk/Education/Quartus/UART/uart.vwf"
+Info: Inverted registers were found during simulation
+    Info: Register: |uart|st_wait_start_s
+Info: System task: Warning : Invalid transition to 'X' detected on CycloneII PLL input clk. This edge will be ignored.
+Info: System task: Time: 0  Instance: PLL|altpll_component|pll
+Info: System task:  Note : CycloneII PLL is enabled
+Info: System task: Time: 0  Instance: PLL|altpll_component|pll
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: System task:  Note : CycloneII PLL locked to incoming clock
+Info: System task: Time: 113518  Instance: PLL|altpll_component|pll
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      83.58 %
+Info: Number of transitions in simulation is 38629
+Info: Quartus II Simulator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 161 megabytes
+    Info: Processing ended: Tue Nov 05 13:55:43 2024
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+
